@@ -16,7 +16,7 @@ def home():
 def run_flask():
     app.run(host="0.0.0.0", port=int(environ.get("PORT", 8080)))
 
-TOKEN = "8984243496:AAGYq5NsReMk5wwpLrB_tfkVYBQU4W-XRyI"
+TOKEN = "8985173285:AAGfxTnLChbF70h6F5p_xs9ZF5p7I3fOxPk"
 
 bot = telebot.TeleBot(TOKEN)
 
