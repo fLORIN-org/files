@@ -4,6 +4,17 @@ import sqlite3
 from datetime import datetime
 import threading
 import time
+from flask import Flask
+from os import environ
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Bot is running"
+
+def run_flask():
+    app.run(host="0.0.0.0", port=int(environ.get("PORT", 8080)))
 
 TOKEN = "8984243496:AAGYq5NsReMk5wwpLrB_tfkVYBQU4W-XRyI"
 
@@ -465,5 +476,6 @@ if __name__ == "__main__":
     init_db()
     fill_test_data()
     threading.Thread(target=notification_loop, daemon=True).start()
+    threading.Thread(target=run_flask, daemon=True).start()
     print("Бот запущен")
     bot.infinity_polling()
